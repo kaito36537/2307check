@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体重管理</title>
+</head>
+<body>
+    <h1>体重管理一覧</h1>
+    <table>
+     <tr>
+        <th>id</th>
+        <th>名前</th>
+        <th>体重</th>
+        <th>計量日</th>
+ 
+    </tr>
+    <tr th:each="weight : ${weights}">
+        <td th:text="${weight.id}"></td>
+        <td th:text="${weight.name}"></td>
+        <td th:text="${weight.weight}"></td>
+        <td th:text="${weight.measurement_date}"></td>
+        <td>
+            <form th:action="@{/weights/edit/{id}(id=${weight.id})}" method="get">
+                <button type="submit">編集</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/weights/delete/{id}(id=${weight.id})}" method="post">
+                <button type="submit">削除</button>
+            </form>
+        </td>
+    </tr>
+    </table>
+    <div>
+        <a href="#" th:href="@{/weights/new}">入力フォーム</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+@charset "UTF-8";
+/* エラーメッセージのスタイル */
+.error-message {
+    color: red; /* 赤色のテキスト */
+    font-size: 14px; /* フォントサイズ */
+    margin-top: 5px; /* 上側の余白 */
+}
